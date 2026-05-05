@@ -15,6 +15,9 @@
 # money = input("Enter money: ")
 # print(money + " rs")
 
+# input_num = int(input("Enter Num: "))
+# pring(input_num)
+
 # -------------------------------***********Excercise**********------------------------------
 
 
