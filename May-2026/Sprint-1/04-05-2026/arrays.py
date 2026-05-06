@@ -8,6 +8,8 @@
 
 # modify array element
 # numbers[0] = 100
+# numbers[2] = 100
+# numbers[3] = 100
 
 # # Add Element
 # numbers.append(99) # adds at the end
