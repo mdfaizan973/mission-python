@@ -129,6 +129,14 @@
 
 # Solution
 
+string = "helloworld"
+reversed_string = ""
+
+for char in string:
+    reversed_string = char + reversed_string
+
+print(reversed_string)
+
 # ? 9. Sort a List in Ascending Order
 
 # Write a program to display a list in ascending order.
