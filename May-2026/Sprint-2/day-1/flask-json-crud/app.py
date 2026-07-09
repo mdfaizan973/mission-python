@@ -81,6 +81,7 @@ def add_user():
 # call write function with full data
 # return jsonify({"message": "", "updated_user": updated_data})
 
+
 @app.route("/users/<int:id>", methods=["PUT"])
 def update_user(id):
 
@@ -136,6 +137,103 @@ def delete_users(id):
         "message": "User Deleted successfully",
         "user-id": id
     })
+
+
+# Products API
+# 1. GET all products
+# write the steps to get all products
+   # route with GET method
+   # get all products data
+   # return jsonify with all products data
+
+@app.route("/products", methods=["GET"])
+def get_products():
+    products_list = read_data()["products"]
+    return jsonify(products_list)
+
+
+# 2. GET product by id
+# write the steps to get product by id
+   # route with GET method and id parameter
+   # get all products data
+   # run loop through products list
+   # match current product id with URL id
+   # if matched:
+      # return jsonify with product data
+   # if no product matched:
+      # return product not found response
+@app.route("/products/<int:id>", methods=["GET"])
+def get_product(id):
+    products_list = read_data()["products"]
+    for product in products_list:
+        if product["id"] == id:
+            return jsonify(product)
+    return jsonify({"message": "Product not found"}), 404
+
+# 3. POST new product
+# write the steps to post new product
+   # route with POST method
+   # get new product data from request.get_json()
+   # add new product to products list
+   # call write function with updated products data
+   # return jsonify with new product data
+   
+@app.route("/products", methods=["POST"])
+def add_product():
+    data = read_data()
+    new_product = request.get_json()
+    new_product["id"] = len(data["products"]) + 1
+    data["products"].append(new_product)
+    write_data(data)
+    return jsonify(new_product)
+
+# 4. PUT update product
+# write the steps to update product
+   # route with PUT method and id parameter
+   # get all products data
+   # run loop through products list
+   # match current product id with URL id
+   # if matched:
+      # update product with new data from request.get_json()
+      # call write function with updated products data
+      # return jsonify with updated product data
+   # if no product matched:
+      # return product not found response
+
+@app.route("/products/<int:id>", methods=["PUT"])
+def update_product(id):
+    data = read_data()
+    updated_product = request.get_json()
+    for product in data["products"]:    
+        if product["id"] == id:
+            updated_product["id"] = id
+            product.clear()
+            product.update(updated_product)
+            write_data(data)
+            return jsonify(product)
+    return jsonify({"message": "Product not found"}), 404
+
+# 5. DELETE product
+# write the steps to delete product
+   # route with DELETE method and id parameter
+   # get all products data
+   # run loop through products list
+   # match current product id with URL id
+   # if matched:
+      # delete product from products list
+      # call write function with updated products data
+      # return jsonify with deleted product data
+
+@app.route("/products/<int:id>", methods=["DELETE"])
+def delete_product(id):
+    data = read_data()
+    for product in data["products"]:
+        if product["id"] == id:
+            data["products"].remove(product)
+            write_data(data)
+            return jsonify({"message": "Product deleted successfully"}), 200
+    return jsonify({"message": "Product not found"}), 404
+
 
 
 # 🚀 5: Run Flask App

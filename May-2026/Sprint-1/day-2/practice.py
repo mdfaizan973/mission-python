@@ -86,13 +86,13 @@
 
 # Solution
 
-# def check_vowel_cons(char):
-#     vowels = "aeiou"
-#     # return "vowels" if char in vowels else "consonant" 
-#     if char in vowels:
-#         return "vowel"
-#     else:
-#         return "consonant"
+def check_vowel_cons(char):
+    vowels = "aeiou"
+    # return "vowels" if char in vowels else "consonant" 
+    if char in vowels:
+        return "vowel"
+    else:
+        return "consonant"
 
 # print(check_vowel_cons("a"))
 # print(check_vowel_cons("b"))
@@ -123,29 +123,49 @@
 
 # Solution
 
+# def fectorial_of_number(num):
+#     if num <= 1:
+#        return num
+
+#     return num * fectorial_of_number(num-1)
+
+# print(fectorial_of_number(4))
+
 # ? 8. Reverse a String
 
 # Write a program to reverse a given string.
 
 # Solution
 
-string = "helloworld"
-reversed_string = ""
+# string = "helloworld"
+# reversed_string = ""
 
-for char in string:
-    reversed_string = char + reversed_string
+# for char in string:
+#     reversed_string = char + reversed_string
 
-print(reversed_string)
+# print(reversed_string)
 
 # ? 9. Sort a List in Ascending Order
 
 # Write a program to display a list in ascending order.
+# listArr = [3,7,2,5,9,1,6]
+# # listArr.sort()
+# print(sorted(listArr))
 
 # Solution
 
 # ? 10. Sum of First N Natural Numbers
 
 # Write a program to find the sum of first N natural numbers.
+
+# def sum_of_natural_numbers(num):
+#     sum = 0
+#     for i in range(1, num+1):
+#         sum += i
+    
+#     return sum
+    
+# print(sum_of_natural_numbers(10))
 
 # Solution
 
@@ -155,9 +175,45 @@ print(reversed_string)
 
 # Solution
 
+# num1 = 5
+# num2 = 4
+
+# temp = num1
+# num1 = num2
+# num2 = temp
+
+
+# # num1 = num1 + num2
+# # num2 = num1 - num2
+# # num1 = num1 - num2
+
+# print(num1)
+# print(num2)
+
 # ? 12. Check Prime Number
 
 # Write a program to check whether a number is prime or not.
+
+def check_prime(num):
+    if num <= 1:
+        return f"{num} Not Prime"
+
+    for i in range(2, num):
+        if num % i == 0:
+            return f"{num} Not Prime"
+
+    return f"{num} Prime"
+
+# print(check_prime(0))
+# print(check_prime(1))
+# print(check_prime(2)) 
+# print(check_prime(3))
+# print(check_prime(4))
+# print(check_prime(5))
+# print(check_prime(6))
+# print(check_prime(7))
+# print(check_prime(8))
+# print(check_prime(9))
 
 # Solution
 
@@ -166,6 +222,16 @@ print(reversed_string)
 # Write a program to generate Fibonacci series up to N terms.
 
 # Solution
+
+# def fibbonacci_series(num):
+#     if num <= 1:
+#         return num
+
+#     return fibbonacci_series(num-1) + fibbonacci_series(num-2)
+
+
+# for i in range(5):
+#     print(fibbonacci_series(i))
 
 # ? 14. Find Smallest Among Three Numbers
 
@@ -176,6 +242,13 @@ print(reversed_string)
 # ? 15. Count Digits in a Number
 
 # Write a program to count the number of digits in a given number.
+
+# nums = 343233434
+
+# temp = len(str(nums))
+
+# # for i in range
+# print(temp)
 
 # Solution
 
@@ -209,3 +282,14 @@ print(reversed_string)
 
 # Solution
 
+string = "hfeoisdfhoieunfdsf"
+vowels = "aeiou"
+count = 0
+v = ""
+for i in string:
+    if i in vowels:
+       count = count+1
+       v = v+i
+
+print(count)
+print(v)
