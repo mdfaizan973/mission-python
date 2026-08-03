@@ -1,0 +1,108 @@
+{
+    "users": [
+        {
+            "email": "john@example.com",
+            "name": "John Smith",
+            "password": "Ab1@x9",
+            "id": "755a1f65-0761-4d21-a5ff-92fc20dc3011"
+        },
+        {
+            "email": "emma@example.com",
+            "name": "Emma Wilson",
+            "password": "Q7#nP2",
+            "id": "4d9d0d8d-cd93-4b38-a3fb-3a5cb5aaf001"
+        },
+        {
+            "email": "liam@example.com",
+            "name": "Liam Brown",
+            "password": "M5!kR8",
+            "id": "8b7d9d2b-52d2-4c7b-b8b8-0a2f7e8c1002"
+        },
+        {
+            "email": "olivia@example.com",
+            "name": "Olivia Davis",
+            "password": "T3$yW6",
+            "id": "a93c1f44-6d8f-4d88-b9d3-9c4d2a7f3003"
+        },
+        {
+            "email": "noah@example.com",
+            "name": "Noah Taylor",
+            "password": "Z8&hL4",
+            "id": "c5e2f1a8-9f74-4b31-8d2f-7b1a9c5d4004"
+        },
+        {
+            "email": "ethan.clark@example.com",
+            "name": "Ethan Clark",
+            "password": "B8!mY4",
+            "id": "1d0c84db-6906-4c22-90d0-ed93c4717068"
+        }
+    ],
+    "products": [
+        {
+            "id": 1,
+            "name": "Apple",
+            "price": 50,
+            "category": "fruits"
+        },
+        {
+            "id": 2,
+            "name": "Banana",
+            "price": 24,
+            "category": "fruits"
+        },
+        {
+            "id": 3,
+            "name": "Carrot",
+            "price": 15,
+            "category": "vegetables"
+        },
+        {
+            "id": 4,
+            "name": "Tomato",
+            "price": 30,
+            "category": "vegetables"
+        },
+        {
+            "id": 5,
+            "name": "Potato",
+            "price": 20,
+            "category": "vegetables"
+        },
+        {
+            "id": 6,
+            "name": "Mango",
+            "price": 80,
+            "category": "fruits"
+        },
+        {
+            "id": 7,
+            "name": "Orange",
+            "price": 60,
+            "category": "fruits"
+        },
+        {
+            "id": 8,
+            "name": "Milk",
+            "price": 55,
+            "category": "dairy"
+        },
+        {
+            "id": 9,
+            "name": "Bread",
+            "price": 40,
+            "category": "bakery"
+        },
+        {
+            "id": 10,
+            "name": "Eggs",
+            "price": 90,
+            "category": "dairy"
+        },
+        {
+            "id": 11,
+            "name": "Apple",
+            "price": 44,
+            "category": "fruits"
+        }
+    ]
+}
