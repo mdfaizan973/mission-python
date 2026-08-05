@@ -39,67 +39,67 @@
     ],
     "products": [
         {
-            "id": 1,
+            "id": "a3f2d8b1-9f8e-4f17-8d3d-1b2f4c8d9e10",
             "name": "Apple",
             "price": 50,
             "category": "fruits"
         },
         {
-            "id": 2,
+            "id": "c5e7a9d2-6b1c-4d9f-92f1-3d7a5b8c1e22",
             "name": "Banana",
             "price": 24,
             "category": "fruits"
         },
         {
-            "id": 3,
+            "id": "d9b4f1c3-8a2e-45b7-a4d6-7e9c2f1b5a33",
             "name": "Carrot",
             "price": 15,
             "category": "vegetables"
         },
         {
-            "id": 4,
+            "id": "f2a8c6d4-1e9b-4c73-b6d8-9a3e7c5f2b44",
             "name": "Tomato",
             "price": 30,
             "category": "vegetables"
         },
         {
-            "id": 5,
+            "id": "b7d3e1a5-4c9f-4d81-8e2f-6c1a9b7d3f55",
             "name": "Potato",
             "price": 20,
             "category": "vegetables"
         },
         {
-            "id": 6,
+            "id": "e4c7b2f6-9d1a-4b8f-91c4-5a2e7d8b6c66",
             "name": "Mango",
             "price": 80,
             "category": "fruits"
         },
         {
-            "id": 7,
+            "id": "c8f5a3d7-2b6e-43c9-b8d2-1f7a4c5e9d77",
             "name": "Orange",
             "price": 60,
             "category": "fruits"
         },
         {
-            "id": 8,
+            "id": "9d2e7c8f-5a4b-41d6-a9c7-3b8f2d1e6a88",
             "name": "Milk",
             "price": 55,
             "category": "dairy"
         },
         {
-            "id": 9,
+            "id": "6a1f9d2b-8c4e-47b3-b5d1-9e2c7a4f3b99",
             "name": "Bread",
             "price": 40,
             "category": "bakery"
         },
         {
-            "id": 10,
+            "id": "3e7b4c9d-1a8f-42d5-94c6-2f9a5b8d7c10",
             "name": "Eggs",
             "price": 90,
             "category": "dairy"
         },
         {
-            "id": 11,
+            "id": "7c5d1a8f-4b9e-46d2-a3f7-8b1c5d9e2f11",
             "name": "Apple",
             "price": 44,
             "category": "fruits"
