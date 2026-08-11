@@ -49,7 +49,7 @@ def delete_products_services(id):
     
 
 def search_products_services(name, category):
-    
+
     if name not in ("", None):
         return search_products_by_name(name)
 
@@ -57,3 +57,8 @@ def search_products_services(name, category):
         return search_products_by_category(category)
 
     return []
+
+def get_product_by_id_services(id):
+
+    result  = get_product_by_id(id)
+    return result

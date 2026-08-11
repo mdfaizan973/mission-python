@@ -2,7 +2,7 @@ from flask import Flask, jsonify, request
 import json
 from flask_jwt_extended import JWTManager, create_access_token, jwt_required, get_jwt_identity
 from uuid import uuid4
-
+import pandas as pd
 from utils import check_password
 
 app = Flask(__name__)
@@ -454,7 +454,6 @@ def delete_all():
     write_data(data)
 
     return jsonify({"message": f"All products have been deleted. {total_count} data affected "})
-
 
 if __name__ == "__main__":
     app.run(debug=True)

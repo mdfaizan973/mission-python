@@ -1,5 +1,7 @@
 from flask import Blueprint, request, jsonify
-from app.services.auth_service import create_users_services, delete_user_services, get_all_users_services, get_single_user_services, update_user_services
+from app.services.auth_service import create_users_services, delete_user_services, excel_file_upload_services, get_all_users_services, get_single_user_services, update_user_services
+import pandas as pd
+# from app.services.auth_service import read_data, write_data
 
 auth_bp = Blueprint("auth", __name__)
 
@@ -34,7 +36,7 @@ def update_user(id):
 @auth_bp.route("/users/<id>", methods=["DELETE"])
 def delete_user(id):
 
-    result  = delete_user_services(id)
+    result = delete_user_services(id)
 
     return jsonify(result)
 
@@ -42,6 +44,16 @@ def delete_user(id):
 @auth_bp.route("/users/<id>", methods=["GET"])
 def get_single_user(id):
 
-    result = get_single_user_services(id) 
+    result = get_single_user_services(id)
 
+    return jsonify(result)
+
+
+@auth_bp.route("/excel_file_upload", methods=["POST"])
+def excel_file_upload():
+    excel_file = request.files.get("excel_file")
+    title = request.form.get("title")
+    description = request.form.get("description")
+
+    result  = excel_file_upload_services(excel_file, title, description)
     return jsonify(result)

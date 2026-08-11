@@ -1,6 +1,6 @@
 from unittest import result
 from flask import Blueprint, jsonify, request
-from app.services.products_service import create_products_services, delete_products_services, get_all_products_services, search_products_services, update_products_services
+from app.services.products_service import create_products_services, delete_products_services, get_all_products_services, get_product_by_id_services, search_products_services, update_products_services
 
 product_bp = Blueprint("products", __name__)
 
@@ -45,6 +45,12 @@ def search_products():
     return jsonify(result)
 
 # Get Product by ID : GET /products/3
+@product_bp.route("/products/<id>", methods=["GET"])
+def get_product_by_id(id):
+
+    result = get_product_by_id_services(id)
+    return jsonify(result)
+
 # Delete All Products : DELETE /products
 # Filter by Price: GET /products/filter?min=50&max=100
 # Sort Products: GET /products/sort/asc : GET /products/sort/desc
