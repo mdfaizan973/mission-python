@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Upload Excel Products</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #f4f5f8;
+    color: #1a1d24;
+    padding: 0 16px;
+  }
+
+  h1 { font-size: 20px; }
+
+  form {
+    background: #fff;
+    border: 1px solid #e1e4ea;
+    border-radius: 10px;
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 20px;
+    margin-bottom: 24px;
+  }
+
+  input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 12px;
+    border: 1px solid #e1e4ea;
+    border-radius: 6px;
+    font-size: 14px;
+    box-sizing: border-box;
+  }
+
+  button {
+    padding: 10px 16px;
+    background: #4f7dff;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+  }
+
+  button:disabled { opacity: 0.6; cursor: not-allowed; }
+
+  #loadBtn { margin-bottom: 20px; background: #6b7280; }
+  #results {
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+    width: 970px;
+  }
+  .card {
+    background: #fff;
+    border: 1px solid #e1e4ea;
+    border-radius: 10px;
+    padding: 16px;
+    width: 200px;
+    margin: 4px;
+  }
+
+  .card h3 { margin: 0 0 6px; }
+  .card .price { color: #1f9d6b; font-weight: bold; }
+  .card .category { color: #6b7280; font-size: 13px; margin-bottom: 8px; }
+</style>
+</head>
+<body>
+
+<h1>Upload Excel Products</h1>
+
+<form id="uploadForm">
+  <input type="text" name="title" placeholder="Title" required>
+  <input type="file" name="excel_file" accept=".xlsx,.xls,.csv" required>
+  <button type="submit">Upload</button>
+</form>
+
+<button id="loadBtn">Load Products</button>
+
+<div id="results"></div>
+
+<script>
+  const form = document.getElementById("uploadForm");
+  const results = document.getElementById("results");
+  const API_URL = "http://127.0.0.1:5000/excel_products";
+
+  function showProducts(data) {
+    const products = Array.isArray(data) ? data : [data];
+    results.innerHTML = products.map(p => `
+      <div class="card">
+        <h3>${p.title || ""} :
+            <span>${p?.product_uuid?.substring(0,6)}</span>
+        </h3>
+        <div class="category">${p.category || ""}</div>
+        <div class="price">₹${p.discount_price_inr || ""}</div>
+      </div>
+    `).join("");
+  }
+
+  // Upload a new product (POST)
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const button = form.querySelector("button");
+    button.disabled = true;
+    button.textContent = "Uploading...";
+
+    try {
+      const response = await fetch(API_URL, {
+        method: "POST",
+        body: new FormData(form)
+      });
+      showProducts(await response.json());
+    } catch (err) {
+      results.innerHTML = `<p>Something went wrong. Please try again.</p>`;
+    } finally {
+      button.disabled = false;
+      button.textContent = "Upload";
+    }
+  });
+
+  // Load existing products (GET) - separate from upload
+  document.getElementById("loadBtn").addEventListener("click", async () => {
+    try {
+      const response = await fetch(API_URL, { method: "GET" });
+      showProducts(await response.json());
+    } catch (err) {
+      results.innerHTML = `<p>Could not load products.</p>`;
+    }
+  });
+</script>
+
+</body>
+</html>
